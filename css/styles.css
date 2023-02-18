@@ -9,6 +9,7 @@
   --clients-color: #8e8f99;
   --footer-hover-links: #31d0aa;
   --modal-bg-color: #fcfcfc;
+  --modal-btn-color: #000000;
 }
 
 body {
@@ -179,7 +180,6 @@ img {
   padding-top: 188px;
   padding-bottom: 188px;
 
-  background-color: var(--title-text-color);
   background-image: linear-gradient(
       to right,
       rgba(46, 47, 66, 0.7),
@@ -287,10 +287,31 @@ img {
   width: 24px;
   height: 24px;
 
-  background: var(--footer-text-color);
+  color: var(--modal-btn-color);
+  background-color: var(--footer-text-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-button:hover .icon {
+  --icon-color: currentColor;
+  fill: var(--icon-color);
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  color: var(--primary-white-color);
+  background-color: var(--button-accent-color);
+  border-color: transparent;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .invisible-title {
@@ -480,7 +501,8 @@ img {
   border-radius: 4px;
   color: var(--clients-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients.list .icon {
@@ -491,8 +513,6 @@ img {
 .clients.list .social-link:hover {
   border-color: var(--button-accent-color);
   color: var(--button-accent-color);
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer {
@@ -633,11 +653,12 @@ img {
   padding: 0;
 }
 
-.portfolio.list .item {
+.portfolio.list .link {
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio.list .item:hover {
+.portfolio.list .link:hover,
+.portfolio.list .link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -685,7 +706,7 @@ img {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio.item:hover .thumb-description {
+.portfolio .link:hover .thumb-description {
   transform: translateY(0);
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
